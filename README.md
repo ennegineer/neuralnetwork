@@ -33,23 +33,24 @@ First we need to preprocess the dataset.
 5. Fit and scale the data using `StandardScaler()`.
 
 ### Compile, Train, Evalute
-use tensorflow
+Using tensorflow, we compiled the sequential model with relu activation method and evaluated at 50 epochs. The loss was very high - 55%, and accuracy was below 74%, so we added another hidden layer and tried again. The loss remained about the same. 
 
 ### Optimize the model
-
+Next we set up a function to help us find the best options for a sequential model. The function was very taxing on CPU and ran for a long time without finishing, but in the time that it did run, it looked like the tanh activation method was more successful than relu. We re-ran our original sequential model with tanh instead of relu as the activation method. Accuracy and loss remained about the same.
 
 ## Analysis
 
 Below is a report on the performance of the deep learning model we created in this exercise.
 ### Overview
-Explain the purpose of this analysis.
+The purpose of this analysis was to attempt to predict whether a loan applicant would be successful if funded, based on the existing data provided by the foundation. We followed standard practices for preprocessing the data, dropping unnecessary columns and fitting and transforming the data after changing categorical values to numeric. 
+
+Next we ran several sequential models to try to find the best accuracy at minimum loss. All of our models produced the same results: approximately 73% accuracy, but at 55% loss.
 ### Results
-Using bulleted lists and images to support answers, address these questions:
 
   * Data Preprocessing
-    * What variable(s) are considered the target(s) for your model?
-    * What variable(s) are considered to be the features for your model?
-    * What variable(s) are neither targets nor features, and should be removed from the input data?
+    * `IS_SUCCESSFUL` is the target for our model, since that is the variable we want to predict.
+    * `EIN` and `NAME` are neither targets nor features, and were removed from the input data.
+    * All other variables are considered to be the features for the model.
   * Compiling, Training, and Evaluating the Model
     * How many neurons, layers, and activation functions did you select for your neural network model, and why?
     * Were you able to achieve the target model performance?
