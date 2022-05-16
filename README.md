@@ -52,9 +52,10 @@ Next we ran several sequential models to try to find the best accuracy at minimu
     * `EIN` and `NAME` are neither targets nor features, and were removed from the input data.
     * All other variables are considered to be the features for the model.
   * Compiling, Training, and Evaluating the Model
-    * How many neurons, layers, and activation functions did you select for your neural network model, and why?
-    * Were you able to achieve the target model performance?
-    * What steps did you take to try and increase model performance?
+    * Our neural network model has 16 neurons with 3 layers, with relu as the activation on two and tanh on the third. Our initial run was with two layers and 16 neurons each, using tanh as the activation method. This did not perform as well as the second model.
+    * We were not able to achieve high performance with our models - accuracy in our first few models was around 73%, and with 55% loss. Later models performed much worse, with an accuracy around 46% and loss of 70%.
+    * We created a function to attempt several combinations of neurons, layers and activation methods to try to find the best fit. Running this function as keras tuner was very expensive computationally and could not complete on our machine, but we were able to view the results on over 70 trials. None performed better than our first two.
 
 ### Summary
-Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
+
+Overall, our deep learning model is not ideal. Perhaps a better outcome could be reached if we had more data, looked closely for outliers, and if feasible, run a random forest classification model. I would recommend using random forest because it takes many decision tree models and looks for the majority result.
